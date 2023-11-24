@@ -24,7 +24,7 @@ if [[ $# == 0 ]]; then
     return 1
 fi
 
-export SCRIPTS_DIR=`dirname $0`
+export SCRIPTS_DIR=`realpath $(dirname $0)`
 WORKSPACE_DIR="${1:?"Error: Missing workspace directory argument"}"
 APP_DIR="${2:?"Error: Missing application directory argument"}"
 
