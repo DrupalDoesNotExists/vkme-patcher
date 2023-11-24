@@ -6,7 +6,8 @@
 INPUT_DIR="${1:?Error: Missing input directory argument}"
 
 # Check if the tools are installed
-! type "js-beautify" > /dev/null && echo "No \`js-beautify\` installed." && exit 1
+! type "prettier" > /dev/null && echo "No \`prettier\` installed." && exit 1
 
 # Run beautifier and replace the inputs
-js-beautify -r `find $INPUT_DIR -type "f" -name "*.js" -o -name "*.css" -o -name "*.html"` || exit 1
+echo "Running prettier on the $INPUT_DIR"
+cd "$INPUT_DIR" && prettier -w "./**/*.{js, ts, css, html, json, wasm}" || exit 1

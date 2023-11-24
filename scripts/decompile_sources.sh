@@ -14,7 +14,7 @@ $SCRIPTS_DIR/verify_electron.sh "$APP_DIR"; [[ ! $? == 0 ]] && echo "$APP_DIR is
 
 # Extract the .asar
 echo "Extracting sources from the asar archive"
-asar extract "$APP_DIR/resources/app.asar" "$OUT_DIR"
+asar extract "$APP_DIR/resources/app.asar" "$OUT_DIR" || exit 1
 
 # Beautify
 $SCRIPTS_DIR/beautify_sources.sh "$OUT_DIR" || exit 1
