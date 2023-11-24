@@ -1,0 +1,4 @@
+# Ignore decompiled sources
+# and only include patches.
+src/
+src/*
