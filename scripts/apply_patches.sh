@@ -3,7 +3,8 @@
 # This script applies the workspace patches
 # to the existing Electron.js app installation.
 
-export SCRIPTS_DIR=`dirname $0`
+CURRENT_DIR=`dirname $0`
+export SCRIPTS_DIR="${SCRIPTS_DIR:-`realpath $CURRENT_DIR`}"
 APP_DIR=${1:?Error: Missing app installation directory argument}
 : ${VKPATCHER_WORKSPACE:?"No workspace selected"}
 
